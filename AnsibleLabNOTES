@@ -457,11 +457,44 @@ cd root@asus:/home/kevin/LOCAL/WORK/AnsibleLab#
   git add inventory.yaml 
   git commit -m "added inventory.yaml"
   git branch -M main
-  git remote add origin https://github.com/GHBeeGeePee/AnsibleLab.git
+
+
+you only need this when creating a new git:
+
+  git remote add origin https://github.com/KevWellsLinux/AnsibleLab.git
+
+ 
+
+then finally do:
   
   git push -u origin main
  
   
+
+kevin@asus:~/LOCAL/WORK/AnsibleLab$ 
+kevin@asus:~/LOCAL/WORK/AnsibleLab$ git add AnsibleLabNOTES 
+kevin@asus:~/LOCAL/WORK/AnsibleLab$ git commit -m "added AnsibleLabNOTES"
+[main 61729d0] added AnsibleLabNOTES
+ 1 file changed, 488 insertions(+)
+ create mode 100644 AnsibleLabNOTES
+kevin@asus:~/LOCAL/WORK/AnsibleLab$ git branch -M main
+kevin@asus:~/LOCAL/WORK/AnsibleLab$ git remote add origin https://github.com/KevWellsLinux/AnsibleLab.git
+error: remote origin already exists.
+kevin@asus:~/LOCAL/WORK/AnsibleLab$ git push -u origin main
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 5.30 KiB | 5.30 MiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/KevWellsLinux/AnsibleLab.git
+   b1e3ea2..61729d0  main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+kevin@asus:~/LOCAL/WORK/AnsibleLab$ 
+
+
+
+
 
 
 14. How do you use Ansible to handle different operating systems and versions?
@@ -477,6 +510,41 @@ Use the setup module: The setup module can be used to gather information about t
 
 
 
+Ansible Inventory File Groups
+ 
+
+virtualmachines:
+  hosts:
+    ubuntu101:
+      ansible_host: 192.168.122.101
+    ubuntu102:
+      ansible_host: 192.168.122.102
+    ubuntu103:
+      ansible_host: 192.168.122.103
+   children:
+     webservers:
+       hosts:
+	 ubuntu101:
+     dbservers:	
+       hosts: 		 
+         ubuntu102:
+     fileservers:
+       hosts:
+         ubuntu103:
+ 
+
+ 
+
+
+Best Practices
+
+Keep your hosts file names simple – I always use hosts
+
+Comment were required to ensure someone else can understand your inventory
+
+Use children to address multiple groups at once
+
+Do not put passwords in your inventory file – reference them in group_vars or host_vars or even better use Ansible vault within those files.
  
 
 
