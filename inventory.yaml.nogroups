@@ -6,14 +6,3 @@ virtualmachines:
       ansible_host: 192.168.122.102
     ubuntu103:
       ansible_host: 192.168.122.103
-  children:
-    webservers:
-      hosts:
-        ubuntu101:
-    dbservers:
-      hosts:
-        ubuntu102:
-    fileservers:
-      hosts:
-        ubuntu103:
-

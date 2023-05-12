@@ -1,0 +1,11 @@
+
+
+ansible virtualmachines -m ping -i inventory.yaml
+
+
+ansible-inventory -i inventory.yaml --list
+
+
+ansible-playbook -i inventory.yml  playbook-01.yml -u kevin
+
+

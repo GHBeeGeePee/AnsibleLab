@@ -9,11 +9,11 @@ virtualmachines:
   children:
     webservers:
       hosts:
-        ubuntu101:
+        192.168.122.101:
     dbservers:
       hosts:
-        ubuntu102:
+        192.168.122.102:
     fileservers:
       hosts:
-        ubuntu103:
+        192.168.122.103:
 
