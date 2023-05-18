@@ -695,3 +695,4 @@ ansible all -i inventory -m setup -a "filter=*ipv4*" -u sammy
 
 
 
+   
